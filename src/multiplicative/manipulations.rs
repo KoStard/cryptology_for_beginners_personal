@@ -1,12 +1,12 @@
 use crate::constants::functions::alphabet::{index_to_letter, letter_to_index};
 
 pub struct MultiplicativeCipher {
-    pub factor: u8,
-    pub decryption_key: u8
+    pub factor: u32,
+    pub decryption_key: u32
 }
 
 impl MultiplicativeCipher {
-    pub fn new(factor: u8) -> Result<Self, String> {
+    pub fn new(factor: u32) -> Result<Self, String> {
         if !Self::verify_key(factor) {
             return Err("Invalid key!".to_owned());
         }
@@ -14,7 +14,7 @@ impl MultiplicativeCipher {
         Ok(MultiplicativeCipher {factor, decryption_key})
     }
 
-    fn verify_key(key: u8) -> bool {
+    fn verify_key(key: u32) -> bool {
         // For these keys we don't have inverses and won't be able to decrypt the message
         if key % 2 == 0 || key % 13 == 0 {
             false
@@ -23,8 +23,8 @@ impl MultiplicativeCipher {
         }
     }
 
-    fn get_decryption_key(key: u8) -> Option<u8> {
-        (1..26u8).find(|x| x * key % 26 == 1)
+    fn get_decryption_key(key: u32) -> Option<u32> {
+        (1..26u32).find(|x| x * key % 26 == 1)
     }
 
     pub fn encrypt(&self, message: String) -> String {
@@ -32,7 +32,7 @@ impl MultiplicativeCipher {
             .to_uppercase()
             .chars()
             .filter(|c| c.is_alphabetic())
-            .map(|c| index_to_letter(letter_to_index(c) * self.factor))
+            .map(|c| index_to_letter(((letter_to_index(c) as u32 * self.factor) % 26) as u8))
             .collect::<Vec<char>>()
             .chunks(5)
             .map(|x| x.iter().collect::<String>())
@@ -44,7 +44,7 @@ impl MultiplicativeCipher {
         encrypted_message
             .chars()
             .filter(|c| c.is_alphabetic())
-            .map(|c| index_to_letter(letter_to_index(c) * self.decryption_key))
+            .map(|c| index_to_letter(((letter_to_index(c) as u32 * self.decryption_key) % 26) as u8))
             .collect()
     }
 }
