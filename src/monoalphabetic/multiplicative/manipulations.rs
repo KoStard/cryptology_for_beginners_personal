@@ -52,7 +52,7 @@ impl MultiplicativeCipher {
 
 #[cfg(test)]
 mod multiplicative_tests {
-    use crate::multiplicative::manipulations::MultiplicativeCipher;
+    use crate::monoalphabetic::multiplicative::manipulations::MultiplicativeCipher;
 
     #[test]
     fn fails_with_invalid_keys() {

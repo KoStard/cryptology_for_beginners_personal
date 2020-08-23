@@ -1,4 +1,4 @@
-use crate::multiplicative::manipulations::MultiplicativeCipher;
+use crate::monoalphabetic::multiplicative::manipulations::MultiplicativeCipher;
 
 pub struct MultiplicativeCipherHack {
     encrypted_message: String,
@@ -32,7 +32,7 @@ impl MultiplicativeCipherHack {
 
 #[cfg(test)]
 mod multiplicative_cipher_hack_test {
-    use crate::multiplicative::hacking::MultiplicativeCipherHack;
+    use crate::monoalphabetic::multiplicative::hacking::MultiplicativeCipherHack;
 
     #[test]
     fn get_all_variants_contains_correct_option() {

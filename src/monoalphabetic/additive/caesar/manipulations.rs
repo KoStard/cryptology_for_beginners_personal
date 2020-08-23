@@ -25,7 +25,7 @@ pub fn decrypt(message: String, key: u8) -> String {
 
 #[cfg(test)]
 mod caesar_tests {
-    use crate::additive::caesar::manipulations::{decrypt, encrypt};
+    use crate::monoalphabetic::additive::caesar::manipulations::{decrypt, encrypt};
 
     #[test]
     fn encrypt_works_and_chunks_are_created() {

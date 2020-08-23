@@ -1,3 +1,3 @@
-mod affine;
-mod multiplicative;
-mod additive;
+pub mod affine;
+pub mod multiplicative;
+pub mod additive;

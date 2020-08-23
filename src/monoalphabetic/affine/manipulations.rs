@@ -65,7 +65,7 @@ impl AffineCipher {
 
 #[cfg(test)]
 mod affine_test {
-    use crate::affine::manipulations::AffineCipher;
+    use crate::monoalphabetic::affine::manipulations::AffineCipher;
 
     #[test]
     fn encrypt_works() {

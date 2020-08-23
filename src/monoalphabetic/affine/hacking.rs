@@ -1,5 +1,5 @@
-use crate::affine::manipulations::AffineCipher;
-use crate::constants::functions::alphabet::{index_to_letter, letter_to_index};
+use crate::monoalphabetic::affine::manipulations::AffineCipher;
+use crate::constants::functions::alphabet::{letter_to_index};
 use std::collections::{HashMap, HashSet};
 
 
@@ -76,8 +76,7 @@ impl AffineCipherHack {
 
 #[cfg(test)]
 mod affine_cipher_hack_test {
-    use crate::affine::manipulations::AffineCipher;
-    use crate::affine::hacking::AffineCipherHack;
+    use crate::monoalphabetic::affine::hacking::AffineCipherHack;
     use crate::constants::functions::alphabet::letter_to_index;
 
     #[test]

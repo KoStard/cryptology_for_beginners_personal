@@ -1,4 +1,4 @@
-use crate::additive::caesar::manipulations::decrypt;
+use crate::monoalphabetic::additive::caesar::manipulations::decrypt;
 
 pub struct CaesarHack {
     encrypted_message: String
@@ -25,7 +25,7 @@ impl CaesarHack {
 
 #[cfg(test)]
 mod caesar_hack_test {
-    use crate::additive::caesar::hacking::CaesarHack;
+    use crate::monoalphabetic::additive::caesar::hacking::CaesarHack;
 
     #[test]
     fn get_all_variant_contains_correct_value() {
